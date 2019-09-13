@@ -1,120 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <VsDevCmd>pushd . &amp; "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" &amp; popd</VsDevCmd>
-  </PropertyGroup>
   <ItemGroup>
-    <Repository Include="corefx">
-      <Url>https://github.com/dotnet/corefx</Url>
+    <Repository Include="UnityCsReference">
+      <Url>https://github.com/Unity-Technologies/UnityCsReference</Url>
       <Projects>
-        src/*/src/*.csproj;
-        src/*/src/*.vbproj;
+        Projects/CSharp/UnityEditor.csproj;
+        Projects/CSharp/UnityEngine.csproj;
       </Projects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build /p:BuildNative=false /p:BuildPackages=false -binarylog
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="winforms">
-      <Url>https://github.com/dotnet/winforms</Url>
-      <Projects>
-        src/*/src/*.csproj;
-      </Projects>
-      <ExcludeProjects>
-        src/*/ref/*.csproj;
-      </ExcludeProjects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="wpf">
-      <Url>https://github.com/dotnet/wpf</Url>
-      <Projects>
-        src/Microsoft.DotNet.Wpf/src/*/*.csproj
-      </Projects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="corefxlab">
-      <Url>https://github.com/dotnet/corefxlab</Url>
-      <Projects>
-        src/**/*.csproj;
-      </Projects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build -SkipTests
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="coreclr">
-      <Url>https://github.com/dotnet/coreclr</Url>
-      <Projects>
-        src/System.Private.CoreLib/System.Private.CoreLib.csproj;
-      </Projects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build -skiptests -skipnative -windowsmscorlib
-      </PrepareCommand>
-    </Repository>
-<!-- TODO: Uncomment when it no longer breaks the build
-    <Repository Include="iot">
-      <Url>https://github.com/dotnet/iot</Url>
-      <Projects>
-        src/**.csproj;
-      </Projects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build
-      </PrepareCommand>
-    </Repository>
--->
-    <Repository Include="msbuild">
-      <Url>https://github.com/Microsoft/msbuild</Url>
-      <Branch>master</Branch>
-      <DeepClone>true</DeepClone>
-      <Projects>
-        src/**/*.csproj;
-      </Projects>
-      <ExcludeProjects>
-        src/Deprecated/**/*.csproj;
-        src/*UnitTests*/**/*.csproj;
-        src/Samples/**/*.csproj;
-      </ExcludeProjects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build -hostType Core
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="machinelearning">
-      <Url>https://github.com/dotnet/machinelearning</Url>
-      <Projects>
-        src/**/*.csproj;
-      </Projects>
-      <PrepareCommand>
-        .\build.cmd -- /t:RestoreProjects
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="wcf">
-      <Url>https://github.com/dotnet/wcf</Url>
-      <Projects>
-        src/System.*/src/*.csproj;
-      </Projects>
-      <PrepareCommand>
-        $(VsDevCmd) &amp; build-managed -SkipTests
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="aspnetcore">
-      <Url>https://github.com/aspnet/aspnetcore</Url>
-      <Projects>
-        src/**/src/**/*.csproj;
-      </Projects>
-      <PrepareCommand>
-        .\restore.cmd -nobuildnodejs
-      </PrepareCommand>
-    </Repository>
-    <Repository Include="dotnet-extensions">
-      <Url>https://github.com/aspnet/extensions</Url>
-      <Projects>
-        src/**/src/**/*.csproj;
-      </Projects>
-      <PrepareCommand>
-        .\restore.cmd
-      </PrepareCommand>
     </Repository>
   </ItemGroup>
 </Project>
